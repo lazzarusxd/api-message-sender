@@ -14,7 +14,7 @@ class MessageSenderService:
             if mensagem.message_type == MessageTypeEnum.SMS:
                 data = {
                     "action": f"{mensagem.message_type.value} sent",
-                    "data": {
+                    "content": {
                         "message_type": mensagem.message_type,
                         "to_number": mensagem.to_number,
                         "message": mensagem.message
@@ -22,12 +22,10 @@ class MessageSenderService:
                 }
                 await publisher.send_message(data)
 
-                print(data)
-
             if mensagem.message_type == MessageTypeEnum.EMAIL:
                 data = {
                     "action": f"{mensagem.message_type.value} sent",
-                    "data": {
+                    "content": {
                         "message_type": mensagem.message_type,
                         "to_address": mensagem.to_address.upper(),
                         "subject": mensagem.subject,

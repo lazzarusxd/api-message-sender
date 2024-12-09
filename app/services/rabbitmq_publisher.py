@@ -8,10 +8,10 @@ from fastapi import HTTPException, status
 
 class RabbitmqPublisher:
     def __init__(self, exchange: str, routing_key: str, queue: str):
-        self.__host = environ.get('RABBITMQ_HOST')
-        self.__port = int(environ.get('RABBITMQ_PORT'))
-        self.__username = environ.get('RABBITMQ_DEFAULT_USER')
-        self.__password = environ.get('RABBITMQ_DEFAULT_PASS')
+        self.__host = environ.get("RABBITMQ_HOST")
+        self.__port = int(environ.get("RABBITMQ_PORT"))
+        self.__username = environ.get("RABBITMQ_DEFAULT_USER")
+        self.__password = environ.get("RABBITMQ_DEFAULT_PASS")
         self.__exchange = exchange
         self.__routing_key = routing_key
         self.__queue = queue
@@ -20,7 +20,7 @@ class RabbitmqPublisher:
 
     async def __connect(self):
         try:
-            url = f'amqp://{self.__username}:{self.__password}@{self.__host}:{self.__port}/'
+            url = f"amqp://{self.__username}:{self.__password}@{self.__host}:{self.__port}/"
             print(f"Connecting to RabbitMQ: {url}")
 
             self.__connection = await aio_pika.connect_robust(url)
@@ -52,7 +52,7 @@ class RabbitmqPublisher:
             exchange = await self.__channel.get_exchange(self.__exchange)
 
             message_body = aio_pika.Message(
-                body=json.dumps(body).encode("utf-8"),
+                body=json.dumps(body).encode(),
                 content_type="application/json",
                 delivery_mode=aio_pika.DeliveryMode.PERSISTENT
             )
