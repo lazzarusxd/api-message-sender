@@ -82,7 +82,7 @@ api-message-sender/
 6- Configure o interpretador Python na sua IDE:
 - Caso seu ambiente de desenvolvimento tenha sido criado no WSL, selecione-o e escolha a opção "System Interpreter".
   
-- Navegue até o diretório retornado no terminal após a execução do comando do Passo 6.
+- Navegue até o diretório retornado no terminal após a execução do comando do Passo 5.
   
 - Procure o executável do Python dentro do ambiente virtual.
 
