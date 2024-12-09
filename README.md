@@ -143,7 +143,7 @@ api-message-sender/
   "message": "SMS enviado com sucesso.",
   "data": {
     "action": "SMS sent",
-    "data": {
+    "content": {
       "message_type": "SMS",
       "to_number": "5564987654321",
       "message": "Senha alterada com sucesso."
@@ -160,7 +160,7 @@ api-message-sender/
   "message": "EMAIL enviado com sucesso.",
   "data": {
     "action": "EMAIL sent",
-    "data": {
+    "content": {
       "message_type": "EMAIL",
       "to_address": "JOAODASILVA@EMAIL.COM",
       "subject": "Alteração de senha",
