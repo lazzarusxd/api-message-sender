@@ -8,8 +8,7 @@ load_dotenv()
 
 app = FastAPI(
     title="API de Envio de Mensagens",
-    description="""
-    """,
+    description="""API responsável pelo envio de mensagens através de filas de processamento assíncrono, utilizando RabbitMQ para o gerenciamento.""",
     version="1.0"
 )
 
