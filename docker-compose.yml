@@ -11,6 +11,8 @@ services:
     depends_on:
       - rabbitmq
     command: sh -c "poetry run python main.py"
+    networks:
+      - shared-network
 
   rabbitmq:
     image: rabbitmq:3-management
@@ -19,3 +21,14 @@ services:
       - "15674:15672"
     env_file:
       - .env
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    name: shared-network
+
+volumes:
+  rabbitmq_data:
